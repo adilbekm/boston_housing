@@ -11,7 +11,8 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 
 import matplotlib.pyplot as pl
 import numpy as np
-import sklearn.learning_curve as curves
+# Replaced 'learning_curves' with 'model_selection' to avoid deprecation warning
+import sklearn.model_selection as curves
 from sklearn.tree import DecisionTreeRegressor
 # Replaced 'cross_validation' with 'model_selection' to avoid deprecation warning
 from sklearn.model_selection import ShuffleSplit, train_test_split
@@ -21,7 +22,9 @@ def ModelLearning(X, y):
         The learning and testing scores for each model are then plotted. """
     
     # Create 10 cross-validation sets for training and testing
-    cv = ShuffleSplit(X.shape[0], n_iter = 10, test_size = 0.2, random_state = 0)
+    # Updated the ShuffleSplit object because it changed
+    #cv = ShuffleSplit(X.shape[0], n_splits = 10, test_size = 0.2, random_state = 0)
+    cv = ShuffleSplit(n_splits = 10, test_size = 0.2, random_state = 0)
 
     # Generate the training set sizes increasing by 50
     train_sizes = np.rint(np.linspace(1, X.shape[0]*0.8 - 1, 9)).astype(int)
@@ -73,7 +76,9 @@ def ModelComplexity(X, y):
         The learning and testing errors rates are then plotted. """
     
     # Create 10 cross-validation sets for training and testing
-    cv = ShuffleSplit(X.shape[0], n_iter = 10, test_size = 0.2, random_state = 0)
+    # Updated the ShuffleSplit object because it changed
+    #cv = ShuffleSplit(X.shape[0], n_splits = 10, test_size = 0.2, random_state = 0)
+    cv = ShuffleSplit(n_splits = 10, test_size = 0.2, random_state = 0)
 
     # Vary the max_depth parameter from 1 to 10
     max_depth = np.arange(1,11)
