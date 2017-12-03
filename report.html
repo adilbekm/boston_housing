@@ -14096,10 +14096,18 @@ Predicted selling price for Client 3&#39;s home: $979,300.00
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
+<p>I would recommend the following prices: \$407,232 for Client 1, \$229,200 for Client 2, and \$979,300 for Client 3.</p>
+<p>These prices do seem reasonable if we look closer at their features and compare them to the whole dataset.</p>
+<p>The whole dataset:</p>
 <ul>
-<li>I would recommend that Client 1 sell their home for \$407,232, Client 2 for \$229,200, and Client 3 for \$979,300. </li>
-<li>These prices seem reasonable in terms of the direction of the price differences, but probably less reasonable in terms of the amount of the price differences. So, of the three homes, Client 3's home is most favorable in all its features - with largest number of rooms and in a neighborhood with highest income and best schools, while Client 2' home is least favorable, and the predicted prices reflect these differences correctly. However, I would argue that the amount of difference seems a bit large: for example, the price difference between Client 3 and Client 2's homes is more than 2-fold but the difference in their features is less than 2-fold (at least for two of the three features).</li>
+<li>RM: mean=6.24, min=3.56, max=8.39, std=0.64</li>
+<li>LSTAT: mean=12.94, min=1.98, max=8.39, std=7.07</li>
+<li>PTRATIO: mean=18.52, min=12.6, max=22.0, std=2.11</li>
+<li>PRICE: mean=454K, min=105K, max=1025K, std=165K</li>
 </ul>
+<p>Client 1's home has 5 rooms which is somewhat smaller (about 2 standard deviations smaller) than an average home in Boston. The income level of the neighborhood where the home is located is a little worse than the average. The student-to-teacher ratio of the neighborhood, however, is about 1.5 standard deviations better than an average neighborhood. So, Client 1's home is expected to be priced about or a little below the mean price for all of the Boston area.</p>
+<p>Client 2's home is worse than average on all the features, and on one of them (PTRATIO) it is even the worst for the whole dataset. So it makes sense that the predicted price for this client's home is closer to the minimum price for all of Boston.</p>
+<p>Client 3's home is about the opposite of Client 2's on all its features. It has the best (largest) number of rooms and is located in about the best neighborhood in terms of the poverty level and the student-to-teacher ratio. So it is reasonable that the predicted price is near the top of the range for all of Boston.</p>
 
 </div>
 </div>
